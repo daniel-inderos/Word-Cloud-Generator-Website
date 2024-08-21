@@ -83,7 +83,7 @@
         <input type="text" id="url-input" placeholder="Enter website URL">
         <input type="file" id="file-input" accept=".txt">
         <select id="color-scheme">
-            <option value="category10">Category 10</option>
+            <option value="default">Default</option>
             <option value="rainbow">Rainbow</option>
         </select>
         <input type="text" id="filter-words" placeholder="Enter words to filter (comma-separated)">
@@ -207,16 +207,16 @@
             layout.start();
 
             function draw(words) {
-                const colorScheme = document.getElementById('color-scheme').value;
-                let colorScale;
-                
-                switch (colorScheme) {
-                    case 'rainbow':
-                        colorScale = d3.scaleSequential(d3.interpolateRainbow);
-                        break;
-                    default:
-                        colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-                }
+            const colorScheme = document.getElementById('color-scheme').value;
+            let colorScale;
+            
+            switch (colorScheme) {
+                case 'rainbow':
+                    colorScale = d3.scaleSequential(d3.interpolateRainbow);
+                    break;
+                default:
+                    colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+            }
                 
                 d3.select("#word-cloud").html("");
                 const svg = d3.select("#word-cloud")
